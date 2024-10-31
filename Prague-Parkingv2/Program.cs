@@ -354,14 +354,16 @@ class Program
         Console.WriteLine("Fordonet hittades inte.");
     }
 
-    static void ViewParkingMap(string[] garage)
+    static void ViewParkingMapWithVisual(string[] garage)
     {
         Console.WriteLine("Aktuell parkeringsvy:");
         for (int i = 0; i < garage.Length; i++)
         {
-            string status = string.IsNullOrEmpty(garage[i]) ? "Ledig" : garage[i];
-            Console.WriteLine($"Ruta {i + 1}: {status}");
+            string status = string.IsNullOrEmpty(garage[i]) ? "[ ]" : "[X]";
+            Console.Write(status);
+            if ((i + 1) % 10 == 0) Console.WriteLine(); // Byt rad efter varje 10 rutor för bättre översikt
         }
+        Console.WriteLine();
     }
 }
 
