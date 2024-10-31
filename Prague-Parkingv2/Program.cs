@@ -142,6 +142,16 @@ class Program
             {
                 loadedConfig.FreeMinutes = 10;
             }
+             if (loadedConfig.MaxVehiclesPerSlot == null)
+            {
+                loadedConfig.MaxVehiclesPerSlot = new Dictionary<string, int>
+                {
+                    { "BIL", 1 },
+                    { "MC", 2 },
+                    { "BUSS", 1 },
+                    { "CYKEL", 4 }
+                };
+            }
 
             return loadedConfig;
         }
