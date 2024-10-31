@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Text.Json;
 using System.IO;
 using System.Collections.Generic;
+using spectre.console;
 
 class Program
 {
@@ -16,13 +17,18 @@ class Program
         // Ladda in konfigurationsdata från JSON
         config = LoadConfigData();
 
+        // Ladda in prislista från textfil
+        LoadPriceList();
+
         // Ladda in parkeringsinformation från JSON
         string[] parkingGarage = LoadParkingData();
 
         while (true)
         {
             Console.Clear();
-
+    // Använd Spectre.Console för att göra konsolen mer visuellt attraktiv
+            AnsiConsole.Write(new FigletText("Prague Parking").Centered().Color(Color.Green));
+            
             // Skriver ut ASCII text för rubriken
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(@"
